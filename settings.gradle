@@ -1,1 +1,4 @@
 rootProject.name = 'sf-zenab-pet-clinic'
+include 'pet-clinic-data'
+include 'pet-clinic-web'
+
