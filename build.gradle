@@ -17,6 +17,7 @@ configurations {
 repositories {
   mavenCentral()
 }
+
 release {
   git {
     requireBranch = 'main'
