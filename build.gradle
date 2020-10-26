@@ -5,32 +5,39 @@ plugins {
   id 'net.researchgate.release' version '2.8.1'
 }
 
-group = 'com.springframework'
-sourceCompatibility = '11'
+subprojects {
 
-configurations {
-  compileOnly {
-    extendsFrom annotationProcessor
+  group = 'com.springframework'
+  sourceCompatibility = '11'
+
+  apply plugin: 'java'
+  apply plugin: 'io.spring.dependency-management'
+  apply plugin: 'java-library'
+
+  configurations {
+    compileOnly {
+      extendsFrom annotationProcessor
+    }
   }
-}
 
-repositories {
-  mavenCentral()
-}
-
-release {
-  git {
-    requireBranch = 'main'
+  repositories {
+    mavenCentral()
   }
-}
 
-bootJar {
-  mainClassName = 'com.springframework.sfzenabpetclinic.SfZenabPetClinicApplication'
-}
+  release {
+    git {
+      requireBranch = 'main'
+    }
+  }
 
-dependencies {
-}
+  bootJar {
+    mainClassName = 'com.springframework.sfzenabpetclinic.SfZenabPetClinicApplication'
+  }
 
-test {
-  useJUnitPlatform()
+  dependencies {
+  }
+
+  test {
+    useJUnitPlatform()
+  }
 }
